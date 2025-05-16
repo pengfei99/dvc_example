@@ -162,3 +162,16 @@ git checkout HEAD~1 data/test.txt.dvc
 # run dvc checkout to sync the data from the remote store with older version of the dvc metadata, so you get older version of data
 dvc checkout
 ```
+
+## Go to the latest version
+
+You will notice after running `git checkout HEAD~1 data/test.txt.dvc`. The version of `test.txt.dvc` is the `latest-version - 1`.
+
+We can ignore the change by stashing the change
+```shell
+# stash the change, now the The version of `test.txt.dvc` is the latest-version
+git stash
+
+# sync with remote store, your `test.txt` should be the latest version now
+dvc check
+```
